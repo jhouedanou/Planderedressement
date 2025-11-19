@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Présentation Stratégie ERP - Jean Luc Houédanou</title>
+    <style>
+        /* --- BASE & RESET --- */
+        * { box-sizing: border-box; }
+        body { 
+            font-family: 'Segoe UI', 'Roboto', Helvetica, Arial, sans-serif; 
+            margin: 0; 
+            padding: 0; 
+            background-color: #2c3e50; /* Fond d'écran sombre pour faire ressortir le slide */
+            color: #333;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* --- CONTENEUR SLIDE --- */
+        .slideshow-container {
+            width: 90%;
+            max-width: 1000px;
+            height: 90vh;
+            background: #ffffff; /* Fond BLANC PUR pour contraste max */
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+            border-radius: 8px;
+            position: relative;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            border-top: 6px solid #c0392b; /* Ligne d'accent rouge pro en haut */
+        }
+
+        /* --- CONTENU DES SLIDES --- */
+        .mySlides {
+            display: none;
+            padding: 40px 70px;
+            height: 100%;
+            animation: fadeIn 0.5s;
+        }
+
+        @keyframes fadeIn {
+            from {opacity: 0.6;}
+            to {opacity: 1;}
+        }
+
+        /* --- TYPOGRAPHIE HAUT CONTRASTE --- */
+        h1 { 
+            color: #2c3e50; /* Gris/Bleu très foncé */
+            font-size: 2.8em; 
+            margin-bottom: 10px; 
+            font-weight: 800;
+        }
+        h2 { 
+            color: #c0392b; /* Rouge brique pour les titres de slide - très lisible */
+            border-bottom: 2px solid #eee; 
+            padding-bottom: 15px; 
+            margin-top: 0; 
+            font-size: 1.8em;
+        }
+        h3 { 
+            color: #2c3e50; 
+            margin-top: 30px; 
+            font-size: 1.3em; 
+            border-left: 4px solid #2c3e50;
+            padding-left: 10px;
+        }
+        p, li { 
+            font-size: 1.15em; 
+            line-height: 1.6; 
+            color: #222; /* Noir adouci pour lecture écran */
+        }
+        
+        strong { color: #000; font-weight: 700; }
+        
+        /* --- ENCADRÉS & ALERTES --- */
+        .alert-box {
+            background-color: #fff3cd;
+            border-left: 5px solid #ffc107;
+            padding: 15px;
+            margin: 15px 0;
+            color: #856404;
+        }
+        .success-text { color: #155724; font-weight: bold; }
+        .danger-text { color: #721c24; font-weight: bold; }
+
+        /* --- TABLEAUX PRO --- */
+        table { width: 100%; border-collapse: collapse; margin: 25px 0; font-size: 1em; }
+        th { 
+            background-color: #2c3e50; /* En-tête sombre */
+            color: #ffffff; /* Texte blanc */
+            padding: 15px; 
+            text-align: left; 
+        }
+        td { 
+            border-bottom: 1px solid #ddd; 
+            padding: 15px; 
+            color: #333;
+        }
+        tr:nth-child(even) { background-color: #f8f9fa; } /* Zébrure très légère */
+
+        /* --- SLIDE TITRE (LOOK DISTINCT) --- */
+        .title-slide {
+            background-color: #ffffff;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .title-slide h1 { font-size: 3.5em; color: #2c3e50; margin-bottom: 20px; }
+        .title-slide h2 { color: #7f8c8d; border: none; font-weight: 300; font-size: 2em; }
+        .title-box {
+            border: 2px solid #2c3e50;
+            padding: 40px;
+            margin-top: 20px;
+            border-radius: 4px;
+        }
+
+        /* --- NAVIGATION --- */
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 16px;
+            margin-top: -22px;
+            color: white;
+            font-weight: bold;
+            font-size: 20px;
+            transition: 0.3s ease;
+            background-color: rgba(44, 62, 80, 0.8); /* Fond sombre semi-transparent */
+            border-radius: 3px;
+            user-select: none;
+        }
+        .next { right: 10px; }
+        .prev { left: 10px; }
+        .prev:hover, .next:hover { background-color: #c0392b; }
+
+        /* --- DOTS --- */
+        .dot-container {
+            text-align: center;
+            padding: 15px;
+            background: #eee;
+            border-radius: 0 0 8px 8px;
+        }
+        .dot {
+            cursor: pointer;
+            height: 12px;
+            width: 12px;
+            margin: 0 5px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+        }
+        .active, .dot:hover { background-color: #c0392b; }
+
+        /* --- CONTACT CARD --- */
+        .contact-card {
+            background: #f4f6f7;
+            border: 1px solid #ddd;
+            padding: 40px;
+            border-radius: 8px;
+            display: inline-block;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="slideshow-container">
+
+    <div class="mySlides fade title-slide" style="display: block;">
+        <div class="title-box">
+            <h1>Plan de Redressement ERP</h1>
+            <h2>ESP Partners</h2>
+            <div style="margin-top: 40px;">
+                <p style="font-size: 1.4em; color: #333;"><strong>Jean Luc Houédanou</strong></p>
+                <p style="color: #666;">Chef de Projet Transformation Digitale & ERP</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="mySlides fade">
+        <h2>1. Diagnostic des Causes Profondes (Q1)</h2>
+        <p>Le problème n'est pas l'outil (Odoo), mais son déploiement sur un manque de structure.</p>
+        <ul>
+            [cite_start]<li><strong>Sponsorship Exécutif :</strong> Absence de message clair du Top Management sur l'obligation d'usage[cite: 33].</li>
+            [cite_start]<li><strong>Processus :</strong> L'ERP a été posé sur un "chaos organisationnel"[cite: 6, 7].</li>
+            [cite_start]<li><strong>Compétences :</strong> Manque de formation causant bugs et erreurs[cite: 27].</li>
+            [cite_start]<li><strong>Résistance :</strong> Préférence marquée pour les anciens outils (Excel/email)[cite: 8, 27].</li>
+            [cite_start]<li><strong>Quick Wins :</strong> Valeur ajoutée immédiate invisible pour les opérationnels[cite: 27].</li>
+        </ul>
+        <div class="alert-box">
+            <strong>Constat :</strong> Un outil puissant utilisé comme une contrainte administrative et non un levier de performance.
+        </div>
+    </div>
+
+    <div class="mySlides fade">
+        <h2>2. Les 5 Priorités des 60 Jours (Q2)</h2>
+        <p>L'urgence est de sécuriser la finance et restaurer la confiance.</p>
+        <ol>
+            [cite_start]<li><span class="danger-text">Stabiliser les Feuilles de Temps :</span> Impact direct sur la facturation et l'audit[cite: 10, 14].</li>
+            <li><strong>20 Champions Internes :</strong> Créer un réseau de 1 référent par équipe clé.</li>
+            [cite_start]<li><strong>Standardiser 3 Processus :</strong> Timesheet, Validation Factures, Suivi Projets[cite: 15, 20].</li>
+            [cite_start]<li><strong>Audit Technique :</strong> Correction immédiate des bugs bloquants et droits d'accès[cite: 12, 26].</li>
+            <li><strong>Communication Factuelle :</strong> Métriques visibles chaque semaine pour prouver les progrès.</li>
+        </ol>
+    </div>
+
+    <div class="mySlides fade">
+        <h2>3. Feuille de Route Stratégique 6 Mois (Q3)</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th style="width: 15%;">Période</th>
+                    <th style="width: 20%;">Phase</th>
+                    <th>Objectifs Clés</th>
+                    <th>KPIs de Succès</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Mois 1-2</strong></td>
+                    <td>Stabilisation</td>
+                    <td>Fix technique, Formation Key Users, Documentation.</td>
+                    <td>Taux d'adoption, Bugs résolus.</td>
+                </tr>
+                <tr>
+                    <td><strong>Mois 3-4</strong></td>
+                    <td>Standardisation</td>
+                    [cite_start]<td>Templates projets obligatoires [cite: 16][cite_start], Workflows finance[cite: 22].</td>
+                    <td>Conformité processus, Délais validation.</td>
+                </tr>
+                <tr>
+                    <td><strong>Mois 5-6</strong></td>
+                    <td>Optimisation</td>
+                    <td>Dashboards temps réel, Intégrations avancées.</td>
+                    <td>ROI, Satisfaction Utilisateurs.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="mySlides fade">
+        <h2>4. Gouvernance et Conformité (Q4 & Q6)</h2>
+        
+        <div style="display: flex; gap: 30px; flex-wrap: wrap;">
+            <div style="flex: 1; min-width: 300px;">
+                <h3>Modèle de Gouvernance</h3>
+                <ul>
+                    <li><strong>Comité Stratégique (Mensuel) :</strong> DG + Directeurs. Alignement et arbitrage.</li>
+                    <li><strong>Comité Opérationnel (Hebdo) :</strong> Chef de projet + Champions.</li>
+                    <li><strong>Champions Départementaux :</strong> 1 référent terrain (dédié à 20%).</li>
+                </ul>
+            </div>
+            <div style="flex: 1; min-width: 300px;">
+                <h3>Garantir la Conformité Finance</h3>
+                <ul>
+                    [cite_start]<li><strong>Blocage Technique :</strong> Impossible de payer sans validation ERP[cite: 22].</li>
+                    <li><strong>Double Validation :</strong> Automatique si > seuil défini.</li>
+                    [cite_start]<li><strong>Traçabilité :</strong> Scan obligatoire des factures à réception[cite: 21].</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="mySlides fade">
+        <h2>5. Mécanismes d'Adoption</h2>
+        
+        <h3>Objectif : 95% de Complétion Timesheets (Q5)</h3>
+        <ul>
+            <li>Rappels auto (Vendredi 14h) et pré-remplissage intelligent.</li>
+            <li><span class="danger-text">Mesure forte :</span> Blocage cycle paie en cas de récidive.</li>
+            <li>Gamification : Classement des équipes les plus conformes.</li>
+        </ul>
+
+        <h3>Facturation Automatique (Q7)</h3>
+        <p>Processus linéaire automatisé :<br>
+        <strong>Validation Jalon (Chef Projet) &#8594; Notification Client &#8594; [cite_start]Facture Pro-Forma générée.</strong> [cite: 19, 39]</p>
+
+        <h3>Gestion du Changement (Q8)</h3>
+        <ul>
+            <li><strong>Formation :</strong> Micro-learning 15 min/jour (éviter la surcharge).</li>
+            <li><strong>Support :</strong> Hotline interne réactive.</li>
+        </ul>
+    </div>
+
+    <div class="mySlides fade">
+        <h2>6. Risques et Vision Cible (Q9 & Q10)</h2>
+
+        <h3>Top 3 Risques Majeurs</h3>
+        <ul>
+            <li><strong>Rejet massif :</strong> Atténué par les Champions et les Quick Wins.</li>
+            [cite_start]<li><strong>Données erronées :</strong> Atténué par audit quotidien des écarts[cite: 14].</li>
+            <li><strong>Dérive budgétaire :</strong> Atténué par budget buffer 30% et suivi strict.</li>
+        </ul>
+
+        <h3>Vision Cible à 12 Mois</h3>
+        <div class="alert-box" style="background-color: #d4edda; border-color: #155724; color: #155724;">
+            "L'ERP devient le cœur battant de la performance, et non plus un fardeau."
+        </div>
+        <ul>
+            <li>Facturation automatique (délai < 5 jours).</li>
+            <li><strong>+25%</strong> de productivité grâce à l'automatisation.</li>
+            <li>Les Managers pilotent la stratégie, pas la saisie de données.</li>
+        </ul>
+    </div>
+
+    <div class="mySlides fade title-slide">
+        <h2>Merci de votre attention</h2>
+        <div class="contact-card">
+            <p style="font-size: 1.8em; margin-bottom: 10px; color: #2c3e50;"><strong>Jean Luc Houédanou</strong></p>
+            <p style="font-size: 1.2em; color: #555;">Chef de Projet Transformation Digitale</p>
+            <div style="margin-top: 20px; padding-top: 20px; border-top: 1px solid #ccc;">
+                <p>📧 <a href="mailto:votre.email@exemple.com" style="color: #c0392b; text-decoration: none; font-weight: bold;">jhouedanou@gmail.com</a></p>
+            </div>
+        </div>
+        <p style="margin-top: 40px; color: #7f8c8d;">Prêt à relever vos défis ERP.</p>
+    </div>
+
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+    <div class="dot-container">
+        <span class="dot" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+        <span class="dot" onclick="currentSlide(3)"></span>
+        <span class="dot" onclick="currentSlide(4)"></span>
+        <span class="dot" onclick="currentSlide(5)"></span>
+        <span class="dot" onclick="currentSlide(6)"></span>
+        <span class="dot" onclick="currentSlide(7)"></span>
+        <span class="dot" onclick="currentSlide(8)"></span>
+    </div>
+
+</div>
+
+<script>
+    let slideIndex = 1;
+    showSlides(slideIndex);
+
+    function plusSlides(n) {
+        showSlides(slideIndex += n);
+    }
+
+    function currentSlide(n) {
+        showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+        let i;
+        let slides = document.getElementsByClassName("mySlides");
+        let dots = document.getElementsByClassName("dot");
+        
+        if (n > slides.length) {slideIndex = 1}    
+        if (n < 1) {slideIndex = slides.length}
+        
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";  
+        }
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        
+        slides[slideIndex-1].style.display = "block";  
+        dots[slideIndex-1].className += " active";
+    }
+
+    // Clavier
+    document.addEventListener('keydown', function(event) {
+        if (event.key === "ArrowRight") {
+            plusSlides(1);
+        } else if (event.key === "ArrowLeft") {
+            plusSlides(-1);
+        }
+    });
+</script>
+
+</body>
+</html>
